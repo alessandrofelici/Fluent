@@ -13,8 +13,8 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Free protein</h1>
+    <div>      
+      <h1>Fluent</h1>
       <button type="button" onClick={() => handleClick()}>
         {count}g
       </button>
