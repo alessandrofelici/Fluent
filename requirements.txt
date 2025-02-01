@@ -1,6 +1,9 @@
+# for backend
 python
+py -m ensurepip --default-pip
 py -m pip install groq
 pip install groq
+py -m pip install flask requests
 
 #for front end
 download nodejs (https://nodejs.org/en)
@@ -8,4 +11,8 @@ run in powershell if needed>>> Set-ExecutionPolicy -Scope CurrentUser -Execution
 npm install
 npm install axios
 
-git pull origin main
+# for updating your branch
+# git pull origin main
+
+# api key CURRENTLY EXPOSED
+# https://console.groq.com/keys

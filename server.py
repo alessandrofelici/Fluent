@@ -14,8 +14,8 @@ def chatbot_response(request):
     chat_completion = client.chat.completions.create(
         messages=[
             {
-            "role": "system",
-            "content": "you are a helpful assistant is kind and professional. You will help users, specifically by teaching them a spoken langauge. You may help them in other ways but your primary goal is to teach langauge."
+                "role": "system",
+                "content": "you are a helpful assistant is kind and professional. You will help users, specifically by teaching them a spoken langauge. You may help them in other ways but your primary goal is to teach langauge."
             },
             {
                 "role": "user",
