@@ -7,3 +7,5 @@ download nodejs (https://nodejs.org/en)
 run in powershell if needed>>> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 npm install
 npm install axios
+
+git pull origin main
