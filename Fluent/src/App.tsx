@@ -11,7 +11,6 @@ function App() {
   const [input, setInput] = useState<string>('');
   const [loading, setLoading] = useState(false)
   const [messages, setMessages] = useState<Message[]>([]);
-  const [count, setCount] = useState(0);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -21,7 +20,7 @@ function App() {
 
     try {
       const response = await axios.post<{ reply: string }>('http://localhost:5000/chat', {message: input,});
-
+      setLoading(false)
       const reply = response.data.reply;
       setMessages((prev) => [...prev, { role: 'assistant', content: reply}]);
     } catch (error) {
