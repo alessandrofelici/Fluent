@@ -1,0 +1,127 @@
+/* cosmos-theme.css */
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #1a1a1a; /* Dark background for cosmic theme */
+  color: #e0e0e0; /* Light monotone text */
+  font-size: 16px;
+  line-height: 1.5;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff; /* White for headers */
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #d3d3d3; /* Slightly lighter for paragraph text */
+  font-size: 1rem;
+}
+
+/* Main Container */
+.container {
+  width: 80%;
+  max-width: 1200px;
+  background: radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.9) 100%);
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Cosmic Background Animations */
+@keyframes galaxyBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.cosmic-background {
+  background: url('path-to-your-cosmic-image.jpg') no-repeat center center/cover;
+  animation: galaxyBackground 60s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* Modern Button Styles */
+button {
+  background: #333;
+  color: #e0e0e0;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #444;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Input Fields */
+input, textarea {
+  background-color: #222;
+  border: 1px solid #444;
+  color: #d3d3d3;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  background-color: #333;
+  outline: none;
+  border-color: #e0e0e0;
+}
+
+/* Links */
+a {
+  color: #00bcd4; /* Cosmic accent color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff4081; /* Subtle hover effect for links */
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+}
