@@ -4,9 +4,7 @@ py -m ensurepip --default-pip
 py -m pip install groq
 pip install groq
 py -m pip install flask requests
-pip install flask-cors
-py -m pip install flask flask_cors
-
+py -m pip install langchain-core langchain langchain-groq flask flask-cors
 
 #for front end
 download nodejs (https://nodejs.org/en)
@@ -18,6 +16,7 @@ npm install axios
 # git pull origin main
 
 # api key CURRENTLY EXPOSED
+# ``` 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 ```
 # https://console.groq.com/keys
 
 pip install flask-cors
