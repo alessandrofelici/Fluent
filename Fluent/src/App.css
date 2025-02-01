@@ -53,8 +53,9 @@ p {
   }
 }
 
+/*
 .cosmic-background {
-  background: url('path-to-your-cosmic-image.jpg') no-repeat center center/cover;
+  background: url('C:\Users\skybo\OneDrive\Documents\GitHub\Fluent\beautiful-night-sky-cosmic-background-abstract-universe-free-photo.jpg') no-repeat center center/cover;
   animation: galaxyBackground 60s linear infinite;
   position: absolute;
   top: 0;
@@ -62,7 +63,7 @@ p {
   right: 0;
   bottom: 0;
   z-index: -1;
-}
+} */
 
 /* Modern Button Styles */
 button {
