@@ -1,22 +1,9 @@
-# for backend
-python
 py -m ensurepip --default-pip
 py -m pip install groq
 pip install groq
 py -m pip install flask requests
 py -m pip install langchain-core langchain langchain-groq flask flask-cors
 
-#for front end
-download nodejs (https://nodejs.org/en)
-run in powershell if needed>>> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 npm install
 npm install axios
-
-# for updating your branch
-# git pull origin main
-
-# api key CURRENTLY EXPOSED
-# ``` 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 ```
-# https://console.groq.com/keys
-
 pip install flask-cors
