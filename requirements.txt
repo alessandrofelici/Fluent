@@ -1,3 +1,4 @@
 python
 py -m pip install groq
 pip install groq
+pip install flask-cors
