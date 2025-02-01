@@ -1,1 +1,3 @@
-hello there
+python
+pip install groq
+py -m pip install groq
