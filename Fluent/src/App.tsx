@@ -20,7 +20,7 @@ function App() {
     setInput('');
 
     try {
-      const response = await axios.post<{ reply: string }>('http://localhost:500/chat', {message: input,});
+      const response = await axios.post<{ reply: string }>('http://localhost:5000/chat', {message: input,});
 
       const reply = response.data.reply;
       setMessages((prev) => [...prev, { role: 'assistant', content: reply}]);
