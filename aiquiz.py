@@ -14,7 +14,7 @@ quizState = None
 
 
 def generateQuizQuestion(language):
-    prompt = f"Generate a random multiple-choice quiz question for someone learning {language}. The question should be related to vocabulary, grammar, or sentence construction, and provide four options (A, B, C, D). Clearly specify which option is correct."
+    prompt = f"Generate a random multiple-choice quiz question for someone learning {language}. The question should be related to vocabulary, grammar, or sentence construction, and provide four options (A, B, C, D)."
 
     try:
         chat_completion = client.chat.completions.create(
