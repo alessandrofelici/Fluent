@@ -119,8 +119,27 @@ def updateScore(points):
 @app.route("/chat", methods=["POST"])
 def chat():
     user_input = request.json.get("message")
+    language = request.json.get("language")
+
     if not user_input:
         return jsonify({"error": "No message provided"}), 400
+    
+    if not language:
+        return jsonify({"error": "Language is required"}), 400
+    system_prompt = f"""
+    You are a friendly and helpful language learning assistant. Your goal is to help users practice and improve their skills in {language}. 
+    When the user starts a conversation, you will respond in {language}. 
+    You will also provide explanations, corrections, and examples in English if needed to help the user understand.
+    """
+
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", system_prompt),
+        MessagesPlaceholder(variable_name="chat_history"),
+        HumanMessagePromptTemplate.from_template("{human_input}")
+    ])
+
+    conversation.prompt = prompt
+
     bot_response = conversation.predict(human_input=user_input)
 
     return jsonify({"reply": bot_response})
