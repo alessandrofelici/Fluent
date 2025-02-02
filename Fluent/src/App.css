@@ -139,8 +139,10 @@ footer {
 }
 
 .scroll-container {
-  width: 600px;
-  height: 350px;
+  width: 100%; /* Adjust width */
+  max-width: 600px; /* Optional, limits width on larger screens */
+  height: 100%; /* Adjust height */
+  max-height: 350px; /* Optional, limits height */
   overflow: auto; /* Adds scrolling if needed */
   border: 1px solid #ccc;
   border-radius: 20px;

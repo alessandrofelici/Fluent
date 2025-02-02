@@ -8,7 +8,7 @@ function Header() {
         right: 0,
         backgroundColor: '#000',
         padding: '10px',
-        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+        boxShadow: '0 2px 4px rgba(112, 112, 112, 0.1)',
         zIndex: 1000,
     }}>
         <h1><Link to="/">
