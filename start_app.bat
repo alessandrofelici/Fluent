@@ -3,7 +3,8 @@ echo Installing Python dependencies...
 py -m pip install -r dependencies.txt
 
 echo Starting the backend...
-start cmd /k "py server.py"
+start cmd /k "python server.py"
+start cmd /k "python aiquiz.py"
 
 echo Installing frontend dependencies...
 cd Fluent

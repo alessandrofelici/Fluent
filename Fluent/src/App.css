@@ -140,7 +140,7 @@ footer {
 
 .scroll-container {
   width: 600px;
-  height: 350px;
+  height: 250px;
   overflow: auto; /* Adds scrolling if needed */
   border: 1px solid #ccc;
   border-radius: 20px;
@@ -150,4 +150,11 @@ footer {
 ::-webkit-scrollbar {
   width: 0px;  /* For vertical scrollbar */
   height: 0px; /* For horizontal scrollbar */
+}
+
+.pages {
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
