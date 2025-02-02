@@ -151,3 +151,10 @@ footer {
   width: 0px;  /* For vertical scrollbar */
   height: 0px; /* For horizontal scrollbar */
 }
+
+.pages {
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

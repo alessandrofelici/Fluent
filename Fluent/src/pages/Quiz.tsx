@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
+import Mcq from '../Mcq';
+import Header from '../Header';
 
 function Quiz() {
     const [language, setLanguage] = useState<string>('');
@@ -40,31 +42,9 @@ function Quiz() {
     };
 
     return (
+        <>
         <div style={{ paddingTop: '100px' }}>
-            <div style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                backgroundColor: '#000',
-                padding: '10px',
-                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-                zIndex: 1000,
-            }}>
-                <h1><Link to="/">
-                    <button style={{ 
-                        padding: '10px 20px',
-                        fontSize: '16 px',
-                        marginBottom: '5px',
-                        position: 'absolute',
-                        left: '10px',
-                    }}>
-                    Home
-                    </button>
-                    </Link>
-                    Fluent Quiz
-                </h1>
-            </div>
+            <Header/>
             <div>
                 <input 
                 type="text" 
@@ -108,6 +88,10 @@ function Quiz() {
                 </div>
             )}
         </div>
+        <div>
+            <Mcq/>
+        </div>
+        </>
     );
 }
 
