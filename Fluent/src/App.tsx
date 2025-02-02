@@ -33,9 +33,9 @@ function App() {
 
   return (
     <div>
-      <h1>Fluent</h1>
-      <div>
-        {messages.map((msg, index) => (<div className="Bubble" key={index} style={{textAlign: msg.role === 'user' ? 'right' : 'left', marginBottom: '10px',}}> <strong>{msg.role === 'user' ? 'you': 'AI'}:</strong> {msg.content} </div>))}
+      <h1>Fluent !</h1>
+      <div className="scroll-container">
+        {messages.map((msg, index) => (<div className="bubble" key={index} style={{textAlign: msg.role === 'user' ? 'right' : 'left', marginBottom: '10px',}}> {msg.content} </div>))}
         {loading ? 'Loading...' : ''}
       </div>
       <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && handleSend()} style={{ width: '80%', padding: '10px' }} placeholder="Type a message..."/>
