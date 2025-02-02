@@ -17,13 +17,14 @@ model = 'llama-3.3-70b-versatile'
 
 userScore = 0
 quizState = None
+user_language = None  # Track the user's chosen language
 
 groq_chat = ChatGroq(
     groq_api_key="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", 
     model_name="llama-3.3-70b-versatile"
 )
 
-#remembers last 5 interactions
+# Remembers last 5 interactions
 conversational_memory_length = 5  
 memory = ConversationBufferWindowMemory(
     k=conversational_memory_length, 
@@ -31,12 +32,11 @@ memory = ConversationBufferWindowMemory(
     return_messages=True
 )
 
-# defines prompt template
+# Defines prompt template
 prompt = ChatPromptTemplate.from_messages([
     MessagesPlaceholder(variable_name="chat_history"),
     HumanMessagePromptTemplate.from_template("{human_input}")
 ])
-
 
 conversation = LLMChain(
     llm=groq_chat,
@@ -44,7 +44,6 @@ conversation = LLMChain(
     verbose=False,
     memory=memory
 )
-
 
 client = Groq(api_key=groq_api_key)
 
@@ -118,28 +117,18 @@ def updateScore(points):
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    user_input = request.json.get("message")
-    language = request.json.get("language")
+    global user_language
 
+    user_input = request.json.get("message")
     if not user_input:
         return jsonify({"error": "No message provided"}), 400
-    
-    if not language:
-        return jsonify({"error": "Language is required"}), 400
-    system_prompt = f"""
-    You are a friendly and helpful language learning assistant. Your goal is to help users practice and improve their skills in {language}. 
-    When the user starts a conversation, you will respond in {language}. 
-    You will also provide explanations, corrections, and examples in English if needed to help the user understand.
-    """
 
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", system_prompt),
-        MessagesPlaceholder(variable_name="chat_history"),
-        HumanMessagePromptTemplate.from_template("{human_input}")
-    ])
+    # If no language is set, ask the user to specify the language
+    if user_language is None:
+        user_language = user_input.strip()
+        return jsonify({"reply": f"Great! We will now converse in {user_language}. How can I assist you today?"})
 
-    conversation.prompt = prompt
-
+    # If language is set, proceed with the conversation in the chosen language
     bot_response = conversation.predict(human_input=user_input)
 
     return jsonify({"reply": bot_response})

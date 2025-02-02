@@ -145,6 +145,7 @@ footer {
   border: 1px solid #ccc;
   border-radius: 20px;
   padding: 10px;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -203,4 +204,28 @@ footer {
   background-color: #3D3D3D;
   color: white;
   transform: rotateY(180deg);
+}
+
+.option-button {
+  background: #333;
+  color: #e0e0e0;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.option-button:hover {
+  background: #444;
+}
+
+.option-button.correct {
+  background-color: green; /* Green for correct answer */
+}
+
+.option-button.incorrect {
+  background-color: red; /* Red for incorrect answer */
 }
