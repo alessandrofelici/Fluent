@@ -204,8 +204,3 @@ footer {
   color: white;
   transform: rotateY(180deg);
 }
-
-.nextcard {
-  margin-top: 100px;
-  position: fixed;
-}
