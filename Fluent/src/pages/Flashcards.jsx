@@ -2,10 +2,19 @@ import Header from '../Header';
 import { useState } from 'react';
 
 function Flashcards() {
-    const [vocab,setVocab] = useState('dog')
+    const [card,setCard] = useState(['cat', 'gato'])
+    const [vocab,setVocab] = useState(card[0])
 
     function handleFlip() {
-        vocab === 'dog' ? setVocab('perro') : setVocab('dog')
+        setTimeout(() => {
+            vocab === card[0] ? setVocab(card[1]) : setVocab(card[0])
+          }, 200);
+        
+    }
+
+    function handleClick() {
+        setCard(['dog','perro'])
+        handleFlip()
     }
 
     return (
@@ -19,7 +28,8 @@ function Flashcards() {
                         <div className="flip-front" onMouseEnter={(handleFlip)}>{vocab}</div>
                         <div className="flip-back" onMouseLeave={(handleFlip)}>{vocab}</div>
                     </div>
-                    <button>Next Card</button>
+                    <div/>
+                    <button onClick={(handleClick)}>Next Card</button>
                 </div>
             </body>
         </>

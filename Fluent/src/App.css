@@ -160,18 +160,14 @@ footer {
 }
 
 .flip-button {
+  display: inline-block;
   width: 600px;
   height: 400px;
-  background-color: #1a1a1a;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 100px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  perspective: 1000px; /* Enables 3D effect */
+  background-color: transparent; /* Optional, remove unwanted backgrounds */
+  padding: 0; /* Remove additional padding */
+  margin: 0; /* Remove any margins affecting the hover area */
+  border: none; /* Ensure no extra area is added by borders */
+  cursor: pointer; /* Ensures the hover effect only triggers when directly over the button */
 }
 
 .flip-content {
@@ -199,10 +195,17 @@ footer {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  font-size: 40px;
+
 }
 
 .flip-back {
   background-color: #3D3D3D;
   color: white;
   transform: rotateY(180deg);
+}
+
+.nextcard {
+  margin-top: 100px;
+  position: fixed;
 }
