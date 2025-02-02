@@ -12,6 +12,12 @@ function Home() {
                 Go to Chat
                 </button>
             </Link>
+            <Link to="/Quiz">
+                <button style={{ padding: '10px 20px',
+                                 fontSize: '16px'}}>
+                Go to Quiz
+                </button>
+            </Link>
         </div>
     );
 }
