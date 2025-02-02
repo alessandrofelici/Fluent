@@ -8,11 +8,10 @@ npm install
 npm install axios
 npm install react-router-dom
 
+pip install flask-cors
 
 # for updating your branch
 # git pull origin main
 
 # api key CURRENTLY EXPOSED
 # https://console.groq.com/keys
-
-pip install flask-cors

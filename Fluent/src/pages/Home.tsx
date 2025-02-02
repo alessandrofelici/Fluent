@@ -6,17 +6,23 @@ function Home() {
     return (
         <div>
             <Header/>
-            <h1>Welcome to Fluent! Click below to start a conversation!</h1>
+            <h1>How would you like to study?</h1>
             <Link to="/chat">
                 <button className="pages" style={{ padding: '10px 20px',
                                  fontSize: '16px'}}>
-                Go to Chat
+                Conversation
                 </button>
             </Link>
             <Link to="/Quiz">
                 <button className="pages" style={{ padding: '10px 20px',
                                  fontSize: '16px'}}>
-                Go to Quiz
+                Quiz
+                </button>
+            </Link>
+            <Link to="/Flashcards">
+                <button className="pages" style={{ padding: '10px 20px',
+                                 fontSize: '16px'}}>
+                Flashcards
                 </button>
             </Link>
         </div>
