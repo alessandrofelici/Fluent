@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Header from '../Header'
 
 
 interface Message {
@@ -34,12 +35,7 @@ function Chat() {
 
   return (
     <div>
-      <h1>Fluent Chat</h1>
-      <Link to="/">
-        <button style={{ padding: '10px 20px', fontSize: '16px', marginBottom: '5px' }}>
-          Go Back to Home
-        </button>
-      </Link>
+      <Header/>
       <div className="scroll-container">
         {messages.map((msg, index) => (<div className="bubble" key={index} style={{textAlign: msg.role === 'user' ? 'right' : 'left', marginBottom: '10px',}}> {msg.content} </div>))}
         {loading ? 'Loading...' : ''}

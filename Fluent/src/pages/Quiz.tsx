@@ -28,7 +28,7 @@ function Quiz() {
     
             setQuestion(response.data.question);
             setOptions(validatedOptions);
-            setCorrectAnswer(response.data.correctAnswer);
+            setCorrectAnswer(response.data.correctAnswer)
         } catch (error) {
             console.error('Error fetching question:', error);
             setResult('Failed to fetch a question. Please try again.');

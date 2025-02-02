@@ -18,33 +18,33 @@ model = 'llama-3.3-70b-versatile'
 userScore = 0
 quizState = None
 
-# Initialize Groq Chat
 groq_chat = ChatGroq(
-    groq_api_key=groq_api_key, 
-    model_name=model
+    groq_api_key="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", 
+    model_name="llama-3.3-70b-versatile"
 )
 
-# Set up conversational memory
-conversational_memory_length = 5  # Number of messages to remember
+#remembers last 5 interactions
+conversational_memory_length = 5  
 memory = ConversationBufferWindowMemory(
     k=conversational_memory_length, 
     memory_key="chat_history", 
     return_messages=True
 )
 
-# Define Prompt Template
+# defines prompt template
 prompt = ChatPromptTemplate.from_messages([
     MessagesPlaceholder(variable_name="chat_history"),
     HumanMessagePromptTemplate.from_template("{human_input}")
 ])
 
-# Initialize LangChain Conversation
+
 conversation = LLMChain(
     llm=groq_chat,
     prompt=prompt,
     verbose=False,
     memory=memory
 )
+
 
 client = Groq(api_key=groq_api_key)
 
@@ -87,7 +87,6 @@ def generateQuizQuestion(language):
     except Exception as e:
         return f"Sorry, I encountered an error generating the question: {str(e)}"
 
-
 def checkAnswer(language, question, user_answer):
     prompt = f"""The user is learning {language}. The question was: '{question}'.
     The user selected answer: '{user_answer}'. Please:
@@ -123,8 +122,14 @@ def chat():
     if not user_input:
         return jsonify({"error": "No message provided"}), 400
     
-    bot_response = conversation.predict(human_input=user_input)  # Pass correct input
-    return jsonify({"reply": bot_response})
+    if "correct" in feedback.lower():
+        updateScore(10)  
+        quizState = None 
+        return jsonify({"result": f"Correct! {feedback}", "score": userScore})
+    else:
+        updateScore(-5) 
+        quizState = None 
+        return jsonify({"result": f"Incorrect. {feedback}", "score": userScore})
 
 @app.route("/quiz", methods=["POST"])
 def quiz():

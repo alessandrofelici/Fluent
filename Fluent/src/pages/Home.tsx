@@ -1,21 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../Header';
 
 function Home() {
     return (
         <div>
-            <h1>Fluent</h1>
-            <p>Welcome to Fluent! Click below to start a conversation!</p>
-            <Link to="/chat">
-                <button style={{ padding: '10px 20px',
+            <Header/>
+            <h1>How would you like to study?</h1>
+            <Link to="/Chat">
+                <button className="pages" style={{ padding: '10px 20px',
                                  fontSize: '16px'}}>
-                Go to Chat
+                Conversation
                 </button>
             </Link>
             <Link to="/Quiz">
-                <button style={{ padding: '10px 20px',
+                <button className="pages" style={{ padding: '10px 20px',
                                  fontSize: '16px'}}>
-                Go to Quiz
+                Quiz
+                </button>
+            </Link>
+            <Link to="/Flashcards">
+                <button className="pages" style={{ padding: '10px 20px',
+                                 fontSize: '16px'}}>
+                Flashcards
                 </button>
             </Link>
         </div>
