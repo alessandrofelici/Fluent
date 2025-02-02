@@ -121,15 +121,9 @@ def chat():
     user_input = request.json.get("message")
     if not user_input:
         return jsonify({"error": "No message provided"}), 400
-    
-    if "correct" in feedback.lower():
-        updateScore(10)  
-        quizState = None 
-        return jsonify({"result": f"Correct! {feedback}", "score": userScore})
-    else:
-        updateScore(-5) 
-        quizState = None 
-        return jsonify({"result": f"Incorrect. {feedback}", "score": userScore})
+    bot_response = conversation.predict(human_input=user_input)
+
+    return jsonify({"reply": bot_response})
 
 @app.route("/quiz", methods=["POST"])
 def quiz():

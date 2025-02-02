@@ -27,7 +27,7 @@ function Chat() {
       setMessages((prev) => [...prev, { role: 'assistant', content: reply}]);
     } catch (error) {
       setLoading(false)
-      console.error('Error seding message:', error);
+      console.error('Error sending message:', error);
       setMessages((prev) => [...prev, { role: 'assistant', content: 'Failed to get response from AI.' },
       ]);
     }
