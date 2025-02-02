@@ -7,35 +7,40 @@ function Quiz() {
     const [question, setQuestion] = useState<string>('');
     const [userAnswer, setUserAnswer] = useState<string>('');
     const [result, setResult] = useState<string>('');
-    const [loading, setloading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const handleGetQuestion = async () => {
         if (!language.trim()) return;
-        setloading(true);
+        setLoading(true);
 
-        try{
-            const response = await axios.post<{ question: string }>('http://localhost:5000/quiz', { language, });
+        // Clear previous question, result, and user answer
+        setQuestion('');
+        setResult('');
+        setUserAnswer('');
+
+        try {
+            const response = await axios.post<{ question: string }>('http://localhost:5000/quiz', { language });
             setQuestion(response.data.question);
-            setResult('');
-            setUserAnswer('');
         } catch (error) {
             console.error('Error fetching question:', error);
             setResult('Failed to fetch a question. Please try again.');
-            setloading(false);
+        } finally {
+            setLoading(false); // Ensure loading is set to false after the request
         }
     };
 
     const handleSubmitAnswer = async () => {
         if (!userAnswer.trim()) return;
-        setloading(true);
+        setLoading(true);
 
-        try{
-            const response = await axios.post<{ result: string }>('http://localhost:5000/quiz/check', { userAnswer,});
+        try {
+            const response = await axios.post<{ result: string }>('http://localhost:5000/quiz/check', { userAnswer });
             setResult(response.data.result);
         } catch (error) {
             console.error('Error checking answer:', error);
             setResult('Failed to check the answer. Please try again.');
-            setloading(false);
+        } finally {
+            setLoading(false); // Ensure loading is set to false after the request
         }
     };
 
@@ -55,11 +60,11 @@ function Quiz() {
                     <Link to="/">
                         <button style={{ 
                             padding: '10px 20px',
-                            fontSize: '16 px',
+                            fontSize: '16px',
                             marginBottom: '5px',
                             position: 'absolute',
                             left: '10px',
-                            }}>
+                        }}>
                             Home
                         </button>
                     </Link>
@@ -97,8 +102,8 @@ function Quiz() {
                         onClick={handleSubmitAnswer} 
                         style={{ width: '40%', padding: '10px', marginLeft: '2%' }} 
                         disabled={loading}
-                        >
-                            {loading ? 'Loading...': 'Submit Answer'}
+                    >
+                        {loading ? 'Loading...' : 'Submit Answer'}
                     </button>
                 </div>
             )}

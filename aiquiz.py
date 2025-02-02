@@ -67,6 +67,8 @@ def updateScore(points):
 def quiz():
     language = request.json.get("language")
     
+    if not language:
+        return jsonify({"error": "Language is required."}), 400
     
     question = generateQuizQuestion(language)
     
