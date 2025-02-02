@@ -89,11 +89,9 @@ def generateQuizQuestion(language):
 def checkAnswer(language, question, user_answer):
     prompt = f"""The user is learning {language}. The question was: '{question}'.
     The user selected answer: '{user_answer}'. Please:
-    
-    1. Clearly state whether the answer is CORRECT or INCORRECT.
-    2. If correct, explain WHY it is the correct answer.
-    3. If incorrect, state what the correct answer is and provide a short explanation of why it is correct.
-    4. Keep the explanation simple but educational for a beginner learning {language}."""
+    after the user provides an answer, evaluate it. If the answer is correct, respond with 'Correct' 
+    and provide a very brief explanation for a begginer learning {language} of why it is right, maximum three lines long. If the answer is incorrect, respond with 
+    'Incorrect' and provide the correct answer along with a brief explanation."""
 
     try:
         chat_completion = client.chat.completions.create(
