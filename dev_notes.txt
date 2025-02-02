@@ -1,0 +1,10 @@
+# for updating your branch
+# git pull origin main
+
+download nodejs (https://nodejs.org/en)
+run in powershell if needed>>> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+
+# api key CURRENTLY EXPOSED
+# ``` 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 ```
+# https://console.groq.com/keys
