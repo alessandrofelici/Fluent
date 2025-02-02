@@ -140,7 +140,7 @@ footer {
 
 .scroll-container {
   width: 600px;
-  height: 450px;
+  height: 350px;
   overflow: auto; /* Adds scrolling if needed */
   border: 1px solid #ccc;
   border-radius: 20px;
