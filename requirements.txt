@@ -6,4 +6,13 @@ py -m pip install langchain-core langchain langchain-groq flask flask-cors
 
 npm install
 npm install axios
+npm install react-router-dom
+
+
+# for updating your branch
+# git pull origin main
+
+# api key CURRENTLY EXPOSED
+# https://console.groq.com/keys
+
 pip install flask-cors
