@@ -40,18 +40,44 @@ function Quiz() {
     };
 
     return (
-        <div>
-            <h1>Fluent Quiz</h1>
-            <Link to="/">
-                <button style={{ padding: '10px 20px',
-                                 fontSize: '16 px',
-                                 marginBottom: '5px'}}>
-                Go Back to Home
-                </button>
-            </Link>
+        <div style={{ paddingTop: '100px' }}>
+            <div style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                backgroundColor: '#000',
+                padding: '10px',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                zIndex: 1000,
+            }}>
+                <h1><Link to="/">
+                    <button style={{ 
+                        padding: '10px 20px',
+                        fontSize: '16 px',
+                        marginBottom: '5px',
+                        position: 'absolute',
+                        left: '10px',
+                    }}>
+                    Home
+                    </button>
+                    </Link>
+                    Fluent Quiz
+                </h1>
+            </div>
             <div>
-                <input type="text" value={language} onChange={(e) => setLanguage(e.target.value)} placeholder="Enter language" style={{ width: '80%', padding: '10px', marginBottom: '10px'}}/>
-                <button onClick={handleGetQuestion} style={{ width: '40%', padding: '10px', marginLeft: '2%' }} disabled={loading}>
+                <input 
+                type="text" 
+                value={language} 
+                onChange={(e) => setLanguage(e.target.value)} 
+                placeholder="Enter language" 
+                style={{ width: '80%', padding: '10px', marginBottom: '10px'}}
+                />
+                <button 
+                    onClick={handleGetQuestion} 
+                    style={{ width: '40%', padding: '10px', marginLeft: '2%' }} 
+                    disabled={loading}
+                    >
                     {loading ? 'Loading...' : 'Get Question'}
                 </button>
             </div>
@@ -59,8 +85,19 @@ function Quiz() {
                 <div>
                     <h3>Question</h3>
                     <p>{question}</p>
-                    <input type="text" value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)} placeholder="Your answer" style={{ width: '80%', padding: '10px', marginBottom: '10px' }}/>
-                    <button onClick={handleSubmitAnswer} style={{ width: '40%', padding: '10px', marginLeft: '2%' }} disabled={loading}>
+                    <input 
+                        type="text" 
+                        value={userAnswer} 
+                        onChange={(e) => setUserAnswer(e.target.value)} 
+                        placeholder="Your answer" 
+                        style={{ width: '80%', padding: '10px', marginBottom: '10px' }}
+                        />
+                    <button 
+                        onClick={handleSubmitAnswer} 
+                        style={{ width: '40%', padding: '10px', marginLeft: '2%' }} 
+                        disabled={loading}
+                        >
+                            {loading ? 'Loading...': 'Submit Answer'}
                     </button>
                 </div>
             )}
