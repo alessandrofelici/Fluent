@@ -148,7 +148,6 @@ footer {
 }
 
 ::-webkit-scrollbar {
-  color: #ccc;
-  width: 10px;  /* For vertical scrollbar */
-  height: 10px; /* For horizontal scrollbar */
+  width: 0px;  /* For vertical scrollbar */
+  height: 0px; /* For horizontal scrollbar */
 }
