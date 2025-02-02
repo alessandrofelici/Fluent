@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import os
 from groq import Groq
 
 app = Flask(__name__)
-
+CORS(app)
 
 client = Groq(api_key = "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")
 
@@ -13,7 +14,7 @@ quizState = None
 
 
 def generateQuizQuestion(language):
-    prompt = f"Generate a random multiple-choice quiz question for someone learning {language}. The question should be related to vocabulary, grammar, or sentence construction, and provide four options (A, B, C, D). Clearly specify which option is correct."
+    prompt = f"Generate a random multiple-choice quiz question for someone learning {language}. The question should be related to vocabulary, grammar, or sentence construction, and provide four options (A, B, C, D)."
 
     try:
         chat_completion = client.chat.completions.create(
@@ -66,6 +67,8 @@ def updateScore(points):
 def quiz():
     language = request.json.get("language")
     
+    if not language:
+        return jsonify({"error": "Language is required."}), 400
     
     question = generateQuizQuestion(language)
     
