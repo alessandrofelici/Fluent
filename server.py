@@ -49,7 +49,19 @@ conversation = LLMChain(
 client = Groq(api_key=groq_api_key)
 
 def generateQuizQuestion(language):
-    prompt = f"Generate a random multiple-choice quiz question for someone learning {language}. The question should be related to vocabulary, grammar, or sentence construction, and provide four options (A, B, C, D). Also, specify the correct answer."
+    prompt = f"""
+    Generate a random multiple-choice quiz question for someone learning {language}. 
+    The question should be related to vocabulary, grammar, or sentence construction. 
+    Provide four options (A, B, C, D) and specify the correct answer.
+
+    **Output Format:**
+    Question: [Your question here]
+    A. [Option A]
+    B. [Option B]
+    C. [Option C]
+    D. [Option D]
+    Correct Answer: [Correct option letter]
+    """
 
     try:
         chat_completion = client.chat.completions.create(
@@ -65,7 +77,7 @@ def generateQuizQuestion(language):
         response = chat_completion.choices[0].message.content
         lines = response.split('\n')
         question = lines[0].replace("Question: ", "").strip()
-        options = [line.strip() for line in lines[1:5]]
+        options = [line.split('. ', 1)[1].strip() for line in lines[1:5]]
         correct_answer = lines[5].replace("Correct Answer: ", "").strip()
         return {
             "question": question,

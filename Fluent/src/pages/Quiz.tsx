@@ -15,23 +15,25 @@ function Quiz() {
     const handleGetQuestion = async () => {
         if (!language.trim()) return;
         setLoading(true);
-
-        // Clear previous question, result, and user answer
-        setQuestion('');
-        setOptions([]);
-        setCorrectAnswer('');
-        setResult('');
-
+    
         try {
             const response = await axios.post<{ question: string, options: string[], correctAnswer: string }>('http://localhost:5000/quiz', { language });
+    
+            console.log("API Response:", response.data); // Debugging: Log the API response
+    
+            // Ensure the options array has exactly 4 elements
+            const validatedOptions = response.data.options.length === 4 
+                ? response.data.options 
+                : ["Option A", "Option B", "Option C", "Option D"];
+    
             setQuestion(response.data.question);
-            setOptions(response.data.options);
+            setOptions(validatedOptions);
             setCorrectAnswer(response.data.correctAnswer);
         } catch (error) {
             console.error('Error fetching question:', error);
             setResult('Failed to fetch a question. Please try again.');
         } finally {
-            setLoading(false); // Ensure loading is set to false after the request
+            setLoading(false);
         }
     };
 
