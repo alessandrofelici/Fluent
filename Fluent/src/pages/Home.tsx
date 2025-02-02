@@ -7,7 +7,7 @@ function Home() {
         <div>
             <Header/>
             <h1>How would you like to study?</h1>
-            <Link to="/chat">
+            <Link to="/Chat">
                 <button className="pages" style={{ padding: '10px 20px',
                                  fontSize: '16px'}}>
                 Conversation

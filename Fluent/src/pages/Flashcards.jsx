@@ -1,12 +1,11 @@
-import Header from "../Header";
+import Header from '../Header';
 
 function Flashcards() {
 
     return (
         <>
             <div>
-                <Header/>
-                <p>Flash</p>
+                <Header />
             </div>
         </>
     )
