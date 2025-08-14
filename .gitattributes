@@ -1,2 +1,14 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Exclude Python virtual environments
+/venv/ linguist-vendored
+/env/ linguist-vendored
+
+# Exclude common build artifacts and caches
+/__pycache__/ linguist-vendored
+/dist/ linguist-generated
+/build/ linguist-generated
+
+# Exclude large documentation/notebooks (if they are not your focus)
+*.ipynb linguist-vendored
